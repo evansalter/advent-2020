@@ -62,45 +62,36 @@ func (p *Passport) IsValid() bool {
 		return false
 	}
 	if p.BirthYear < "1920" || p.BirthYear > "2002" {
-		fmt.Printf("BirthYear not valid: %s\n", p.BirthYear)
 		return false
 	}
 	if p.IssueYear < "2010" || p.IssueYear > "2020" {
-		fmt.Printf("IssueYear not valid: %s\n", p.IssueYear)
 		return false
 	}
 	if p.ExpirationYear < "2020" || p.ExpirationYear > "2030" {
-		fmt.Printf("ExpirationYear not valid: %s\n", p.ExpirationYear)
 		return false
 	}
 	if strings.HasSuffix(p.Height, "cm") {
 		h := strings.Trim(p.Height, "cm")
 		if h < "150" || h > "193" {
-			fmt.Printf("Height not valid: %s\n", p.Height)
 			return false
 		}
 	} else if strings.HasSuffix(p.Height, "in") {
 		h := strings.Trim(p.Height, "in")
 		if h < "59" || h > "76" {
-			fmt.Printf("Height not valid: %s\n", p.Height)
 			return false
 		}
 	} else {
-		fmt.Printf("Height not valid: %s\n", p.Height)
 		return false
 	}
 	m, _ := regexp.MatchString("^#[0-9a-f]{6}$", p.HairColor)
 	if !m {
-		fmt.Printf("HairColor not valid: %s\n", p.HairColor)
 		return false
 	}
 	if !stringOneOf(p.EyeColor, []string{"amb", "blu", "brn", "gry", "grn", "hzl", "oth"}) {
-		fmt.Printf("EyeColor not valid: %s\n", p.EyeColor)
 		return false
 	}
 	m, _ = regexp.MatchString("^[0-9]{9}$", p.PassportID)
 	if !m {
-		fmt.Printf("PassportID not valid: %s\n", p.PassportID)
 		return false
 	}
 	return true
