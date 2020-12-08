@@ -67,16 +67,3 @@ func CountNumBags(allRules []*BagRule, target string) int {
 	}
 	return count
 }
-
-//func FindMatchingRules(allRules []*BagRule, target string) []*BagRule {
-//	matchingRules := make([]*BagRule, 0)
-//	for _, r := range allRules {
-//		for _, c := range r.Contains {
-//			if c.BagColor == target {
-//				matchingRules = append(matchingRules, r)
-//				matchingRules = append(matchingRules, FindMatchingRules(allRules, r.BagColor)...)
-//			}
-//		}
-//	}
-//	return matchingRules
-//}
